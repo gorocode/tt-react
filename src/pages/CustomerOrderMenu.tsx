@@ -273,7 +273,7 @@ const CustomerOrderMenu = () => {
 
     return (
         <motion.div
-            className="min-h-[100dvh] flex flex-col"
+            className="min-h-[100dvh] flex flex-col overflow-hidden max-w-[100vw] w-full box-border"
             style={{ backgroundColor: themeColors.background, color: themeColors.text }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -311,9 +311,9 @@ const CustomerOrderMenu = () => {
             </AnimatePresence>
 
             {/* Main content */}
-            <div className="flex flex-col md:flex-row flex-1 relative overflow-hidden">
+            <div className="flex flex-col justify-center md:flex-row flex-1 relative overflow-hidden w-full max-w-[100vw] box-border">
                 {/* Menu section */}
-                <div className="w-full max-w-[800px] h-full overflow-y-auto">
+                <div className="w-full md:max-w-[800px] h-full overflow-y-auto overflow-x-hidden">
                     {menu && (
                         <CustomerMenu
                             menu={menu}
@@ -327,7 +327,7 @@ const CustomerOrderMenu = () => {
                 <AnimatePresence>
                     {showOrder && (
                         <motion.div
-                            className="w-full h-[100dvh] md:h-auto fixed bottom-0 left-0 md:static overflow-hidden z-10"
+                            className="w-full h-[100dvh] md:h-auto fixed bottom-0 left-0 md:static overflow-y-auto overflow-x-hidden z-10 max-w-[100vw]"
                             style={{
                                 boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1)',
                                 borderTop: `1px solid ${themeColors.secondary}`,
@@ -354,7 +354,7 @@ const CustomerOrderMenu = () => {
                     )}
                     {showOrderToPay && (
                     <motion.div
-                        className="w-full h-[100dvh] md:h-auto fixed bottom-0 left-0 md:static overflow-hidden z-10"
+                        className="w-full h-[100dvh] md:h-auto fixed bottom-0 left-0 md:static overflow-y-auto overflow-x-hidden z-10 max-w-[100vw]"
                         style={{
                             boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1)',
                             borderTop: `1px solid ${themeColors.secondary}`,
@@ -382,10 +382,10 @@ const CustomerOrderMenu = () => {
             {/* Action buttons */}
             <AnimatePresence>
                 {order && (
-                    <div className="fixed w-full bottom-5 left-1/2 transform -translate-x-1/2 z-30">
+                    <div className="fixed w-full px-2 bottom-5 left-1/2 transform -translate-x-1/2 z-30 max-w-[100vw]">
                         <div className="relative flex justify-center">
                             <motion.button
-                                className='px-5 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg text-nowrap cursor-pointer z-2'
+                                className='px-4 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg cursor-pointer z-2'
                                 style={{
                                     background: `linear-gradient(135deg, ${themeColors.primary}, ${themeColors.accent})`,
                                     color: '#ffffff',
@@ -398,7 +398,7 @@ const CustomerOrderMenu = () => {
                                 initial={{ y: 100 }}
                                 animate={{
                                     y: 0,
-                                    x: showOrder || showOrderToPay ? -80 : 0,
+                                    x: showOrder || showOrderToPay ? -70 : 0,
                                     transition: { type: "spring", stiffness: 300, damping: 25 }
                                 }}
                                 exit={{ y: 100 }}
@@ -420,7 +420,7 @@ const CustomerOrderMenu = () => {
                             <AnimatePresence>
                                 {showOrder && (
                                     <motion.button
-                                        className='absolute px-5 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg text-nowrap cursor-pointer'
+                                        className='absolute px-4 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg cursor-pointer'
                                         style={{
                                             background: `linear-gradient(135deg, #22c55e, #16a34a)`,
                                             color: '#ffffff',
@@ -452,7 +452,7 @@ const CustomerOrderMenu = () => {
                             <AnimatePresence>
                                 {showOrderToPay && (
                                     <motion.button
-                                        className='absolute px-5 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg text-nowrap cursor-pointer'
+                                        className='absolute px-4 py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow-lg cursor-pointer'
                                         style={{
                                             background: `linear-gradient(135deg, #3b82f6, #1d4ed8)`,
                                             color: '#ffffff',

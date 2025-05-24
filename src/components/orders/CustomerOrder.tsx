@@ -56,7 +56,7 @@ const Order: React.FC<OrderProps> = ({ order, updateOrder, onViewTableOrders }) 
 
     return (
         <motion.div
-            className="w-full h-full min-h-screen md:min-h-0 flex flex-col items-center p-4 overflow-hidden"
+            className="w-full h-full min-h-screen md:min-h-0 flex flex-col items-center p-3 sm:p-4 overflow-hidden box-border"
             style={{ backgroundColor: themeColors.background, color: themeColors.text }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const Order: React.FC<OrderProps> = ({ order, updateOrder, onViewTableOrders }) 
         >
             {/* Header with order title and table information */}
             <motion.div
-                className="w-full max-w-2xl flex flex-row sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 relative"
+                className="w-full max-w-full sm:max-w-xl md:max-w-2xl flex flex-row justify-between items-start sm:items-center gap-2 mb-4 relative"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -123,7 +123,7 @@ const Order: React.FC<OrderProps> = ({ order, updateOrder, onViewTableOrders }) 
 
             {/* Main order container with item list and totals */}
             <motion.div
-                className="w-full max-w-2xl p-5 md:p-6 rounded-xl shadow-lg select-none md:h-auto"
+                className="w-full max-w-full sm:max-w-xl md:max-w-2xl p-3 sm:p-4 md:p-6 rounded-xl shadow-lg select-none md:h-auto"
                 style={{
                     backgroundColor: `color-mix(in srgb, ${themeColors.background} 98%, ${themeColors.secondary})`,
                     color: themeColors.text,
@@ -135,7 +135,7 @@ const Order: React.FC<OrderProps> = ({ order, updateOrder, onViewTableOrders }) 
                 transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 25 }}
             >
                 {/* Order status and date information */}
-                <div className="grid grid-cols-2 gap-3 text-sm mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-sm mb-4">
                     <div className="flex items-center gap-2">
                         <div
                             className="h-2 w-2 rounded-full"
@@ -198,7 +198,7 @@ const Order: React.FC<OrderProps> = ({ order, updateOrder, onViewTableOrders }) 
                                     <motion.div
                                         key={orderItem.id}
                                         className={`
-                                            flex justify-between items-center p-3
+                                            flex justify-between items-center p-2 sm:p-3
                                             ${index !== order.orderItems.length - 1 ? 'border-b' : ''}
                                         `}
                                         style={{
